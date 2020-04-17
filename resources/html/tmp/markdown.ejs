@@ -1,5 +1,5 @@
-<h2 id="/login">/login</h2>
-<p>.</p>
+<h2 id="/add">/add</h2>
+<p>追加を行います。</p>
 <div class="index">
 
 <ul><li>HTTPS</li>
@@ -11,70 +11,80 @@
 <div class="source">
 
 <p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/login</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/login</code></pre></div>
+<pre><code>https://example.com/add</code></pre><p><strong>STAGING</strong></p>
+<pre><code>https://stg.example.com/add</code></pre></div>
 
-<h3 id="Request">Request</h3>
+<h3 id="リクエスト">リクエスト</h3>
 <div class="table_block"><table><thead><tr>
-<th align="right">params</th>
-<th align="right">必須</th>
+<th>パラメータ名</th>
+<th>論理名</th>
+<th align="center">必須</th>
 <th>型</th>
 <th>説明</th>
 </tr>
 </thead><tbody><tr>
-<td align="right">Username</td>
-<td align="right">Yes</td>
+<td>name</td>
+<td>氏名</td>
+<td align="center"></td>
 <td>String</td>
-<td>--</td>
+<td>パラメーターの備考</td>
 </tr>
 <tr>
-<td align="right">Password</td>
-<td align="right">Yes</td>
+<td>tel</td>
+<td>電話番号</td>
+<td align="center"></td>
 <td>String</td>
-<td>--</td>
+<td>パラメーターの備考</td>
+</tr>
+<tr>
+<td>mail</td>
+<td>メールアドレス</td>
+<td align="center"></td>
+<td>String</td>
+<td>パラメーターの備考</td>
+</tr>
+</tbody></table></div><h3 id="レスポンス">レスポンス</h3>
+<div class="table_block"><table><thead><tr>
+<th>パラメータ名</th>
+<th>型</th>
+<th>説明</th>
+</tr>
+</thead><tbody><tr>
+<td>status</td>
+<td>Boolean</td>
+<td>パラメーターの備考</td>
+</tr>
+<tr>
+<td>message</td>
+<td>String</td>
+<td>パラメーターの備考</td>
 </tr>
 </tbody></table></div><div class="source">
 
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;AccountInfo&quot;: {
-    &quot;CompanyId&quot;: String,
-    &quot;ProductId&quot;: String,
-    &quot;ProjectId&quot;: String,
-    &quot;AccountId&quot;: String,
-    &quot;Description&quot;: String,
-    &quot;Group&quot;: String,
-    &quot;LicenseId&quot;: String,
-    &quot;ExpiryDate&quot;: String,
-    &quot;belongs&quot;: String,
-    &quot;SiUsername&quot;: String,
-    &quot;UserId&quot;: Number,
-    &quot;UserInfo&quot;: [
-      {
-        &quot;Key&quot;: String,
-        &quot;Language&quot;: String,
-        &quot;Value&quot;: String
-      },
-      {
-        &quot;Key&quot;: String,
-        &quot;Language&quot;: String,
-        &quot;Value&quot;: String
-      },
-      {
-        &quot;Key&quot;: String,
-        &quot;Language&quot;: String,
-        &quot;Value&quot;: String
-      }
-    ],
-    &quot;message&quot;: String,
-    &quot;code&quot;: String,
-    &quot;token&quot;: String
+<pre><code class="language-json">[
+  {
+    &quot;status&quot;: Boolean,
+    &quot;message&quot;: String
   }
-}</code></pre>
+]</code></pre>
 </div>
 
-<h2 id="/projectinfo">/projectinfo</h2>
-<p>.</p>
+<h3 id="サンプル">サンプル</h3>
+<div class="source">
+
+<p><strong>REQUEST</strong></p>
+<pre><code>https://example.com/add</code></pre><p><strong>RESPONSE</strong></p>
+<pre><code>[
+  {
+    &quot;status&quot;: &quot;success&quot;,
+    &quot;message&quot;: &quot;成功しました&quot;
+  }
+]</code></pre></div>
+
+
+
+<h2 id="/employee">/employee</h2>
+<p>employeeデータを取得します。</p>
 <div class="index">
 
 <ul><li>HTTPS</li>
@@ -86,79 +96,77 @@
 <div class="source">
 
 <p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/projectinfo</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/projectinfo</code></pre></div>
+<pre><code>https://example.com/employee</code></pre><p><strong>STAGING</strong></p>
+<pre><code>https://stg.example.com/employee</code></pre></div>
 
-<h3 id="Request header">Request header</h3>
+<h3 id="レスポンス">レスポンス</h3>
 <div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
+<th>パラメータ名</th>
 <th>型</th>
 <th>説明</th>
 </tr>
 </thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
+<td>id</td>
 <td>String</td>
-<td>--</td>
+<td>パラメーターの備考</td>
+</tr>
+<tr>
+<td>employee_name</td>
+<td>String</td>
+<td>パラメーターの備考</td>
+</tr>
+<tr>
+<td>employee_age</td>
+<td>String</td>
+<td>パラメーターの備考</td>
 </tr>
 </tbody></table></div><div class="source">
 
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;ProjectInfo&quot;: {
-    &quot;SceneInfo&quot;: [
-      {
-        &quot;Title&quot;: &quot;TaiJinbao&quot;,
-        &quot;Language&quot;: &quot;EN&quot;,
-        &quot;Picture&quot;: &quot;https://product.nadi3docms.com/api/img/TaiJinbaoBuilding.png&quot;,
-        &quot;Timezone&quot;: &quot;7&quot;,
-        &quot;Content&quot;: [
-          {
-            &quot;Key&quot;: &quot;Project&quot;,
-            &quot;Language&quot;: &quot;EN&quot;,
-            &quot;name&quot;: &quot;Project&quot;,
-            &quot;Value&quot;: &quot;OCMS-ATT-001&quot;
-          },
-          {
-            &quot;Key&quot;: &quot;Industry&quot;,
-            &quot;Language&quot;: &quot;EN&quot;,
-            &quot;name&quot;: &quot;Industry&quot;,
-            &quot;Value&quot;: &quot;Complex&quot;
-          },
-          {
-            &quot;Key&quot;: &quot;Type&quot;,
-            &quot;Language&quot;: &quot;EN&quot;,
-            &quot;name&quot;: &quot;Type&quot;,
-            &quot;Value&quot;: &quot;Hybird&quot;
-          },
-          {
-            &quot;Key&quot;: &quot;Location&quot;,
-            &quot;Language&quot;: &quot;EN&quot;,
-            &quot;name&quot;: &quot;Location&quot;,
-            &quot;Value&quot;: &quot;Earth&quot;
-          },
-          {
-            &quot;Key&quot;: &quot;Deployed&quot;,
-            &quot;Language&quot;: &quot;EN&quot;,
-            &quot;name&quot;: &quot;Deployed&quot;,
-            &quot;Value&quot;: &quot;2019/06&quot;
-          },
-          {
-            &quot;Key&quot;: &quot;Description&quot;,
-            &quot;Language&quot;: &quot;EN&quot;,
-            &quot;name&quot;: &quot;Description&quot;,
-            &quot;Value&quot;: &quot;A content management system manages the creation and modification of didgital content. It typically supports multiple users in a collaborative environment.&quot;
-          }
-        ]
-      }
-    ]
+<p><strong>成功</strong></p>
+<pre><code class="language-json">[
+  {
+    &quot;id&quot;: String,
+    &quot;employee_name&quot;: String,
+    &quot;employee_age&quot;: String
+  },
+  {
+    &quot;id&quot;: &quot;2&quot;,
+    &quot;employee_name&quot;: String,
+    &quot;employee_age&quot;: String
   }
-}</code></pre>
+  ...
+]</code></pre>
+<p><strong>失敗</strong></p>
+<pre><code class="language-json">[
+  {
+    &quot;message&quot;: String
+  }
+]</code></pre>
 </div>
 
-<h2 id="/mainmodule">/mainmodule</h2>
-<p>.</p>
+
+<h3 id="サンプル">サンプル</h3>
+<div class="source">
+
+<p><strong>REQUEST</strong></p>
+<pre><code>https://example.com/employee</code></pre><p><strong>RESPONSE</strong></p>
+<pre><code>[
+  {
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;employee_name&quot;: &quot;employee_name&quot;
+    &quot;employee_age&quot;: &quot;employee_age&quot;
+  },
+  {
+    &quot;id&quot;: &quot;2&quot;,
+    &quot;employee_name&quot;: &quot;employee_name&quot;
+    &quot;employee_age&quot;: &quot;employee_age&quot;
+  }
+  ...
+]</code></pre></div>
+
+
+<h2 id="/employee/{id}">/employee/{id}</h2>
+<p>employeeデータを取得します。</p>
 <div class="index">
 
 <ul><li>HTTPS</li>
@@ -170,1684 +178,74 @@
 <div class="source">
 
 <p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/mainmodule</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/mainmodule</code></pre></div>
+<pre><code>https://example.com/employee/{id}</code></pre><p><strong>STAGING</strong></p>
+<pre><code>https://stg.example.com/employee/{id}</code></pre></div>
 
-<h3 id="Request header">Request header</h3>
+<h3 id="リクエスト">リクエスト</h3>
 <div class="table_block"><table><thead><tr>
-<th>params</th>
+<th>パラメータ名</th>
+<th>論理名</th>
 <th align="center">必須</th>
 <th>型</th>
 <th>説明</th>
 </tr>
 </thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
+<td>id</td>
+<td>ID</td>
+<td align="center"></td>
 <td>String</td>
-<td>--</td>
+<td>パラメーターの備考</td>
 </tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;MainModule&quot;: {
-    &quot;Manage&quot;: 2047,
-    &quot;User&quot;: 2045,
-    &quot;Guest&quot;: 2045
-  }
-}</code></pre>
-</div>
-
-<h2 id="/subfunction">/subfunction</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/subfunction</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/subfunction</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
+</tbody></table></div><h3 id="レスポンス">レスポンス</h3>
 <div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
+<th>パラメータ名</th>
 <th>型</th>
 <th>説明</th>
 </tr>
 </thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
+<td>id</td>
 <td>String</td>
-<td>--</td>
+<td>パラメーターの備考</td>
+</tr>
+<tr>
+<td>employee_name</td>
+<td>String</td>
+<td>パラメーターの備考</td>
+</tr>
+<tr>
+<td>employee_age</td>
+<td>String</td>
+<td>パラメーターの備考</td>
 </tr>
 </tbody></table></div><div class="source">
 
-<p><strong>Response</strong></p>
-<pre><code class="language-json">{
-  &quot;SubFunction&quot;: {
-    &quot;MonitorModePermission&quot;: 123,
-    &quot;EdirorModePermission&quot;: 123,
-    &quot;TreeMenuPermission&quot;: 123,
-    &quot;TimeBarPermission&quot;: 7,
-    &quot;BottomBarPermission &quot;: 1,
-    &quot;AlarmSystemPermission&quot;: 1,
-    &quot;CameraModulePermission&quot;: 123,
-    &quot;ReportModulePermission&quot;: 123,
-    &quot;LoginMenuPermission&quot;: 123
-  }
-}</code></pre>
-</div>
-
-<h2 id="/buttombar/attribute">/buttombar/attribute</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/attribute</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/attribute</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
+<p><strong>成功</strong></p>
 <pre><code class="language-json">[
   {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Water&quot;,
-      &quot;TypeIcon&quot;: &quot;Water&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
+    &quot;id&quot;: String,
+    &quot;employee_name&quot;: String,
+    &quot;employee_age&quot;: String
+  }
+]</code></pre>
+<p><strong>失敗</strong></p>
+<pre><code class="language-json">[
   {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;PowerFactor&quot;,
-      &quot;TypeIcon&quot;: &quot;PowerFactor&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Charging&quot;,
-      &quot;TypeIcon&quot;: &quot;Charging&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Battery&quot;,
-      &quot;TypeIcon&quot;: &quot;Battery&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Current&quot;,
-      &quot;TypeIcon&quot;: &quot;Current&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Discharging&quot;,
-      &quot;TypeIcon&quot;: &quot;Discharging&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;light_pressed&quot;,
-      &quot;TypeIcon&quot;: &quot;light_pressed&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Humidity&quot;,
-      &quot;TypeIcon&quot;: &quot;Humidity&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Power&quot;,
-      &quot;TypeIcon&quot;: &quot;Power&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Pressure&quot;,
-      &quot;TypeIcon&quot;: &quot;Pressure&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;SOH&quot;,
-      &quot;TypeIcon&quot;: &quot;SOH&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;SOC&quot;,
-      &quot;TypeIcon&quot;: &quot;SOC&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Status&quot;,
-      &quot;TypeIcon&quot;: &quot;Status&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Temperature&quot;,
-      &quot;TypeIcon&quot;: &quot;Temperature&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Voltmet&quot;,
-      &quot;TypeIcon&quot;: &quot;Voltmet&quot;,
-      &quot;Description&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
+    &quot;message&quot;: String
   }
 ]</code></pre>
 </div>
 
-<h2 id="/buttombar/device">/buttombar/device</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
 
 
+<h3 id="サンプル">サンプル</h3>
 <div class="source">
 
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/device</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/device</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
+<p><strong>REQUEST</strong></p>
+<pre><code>https://example.com/employee/1</code></pre><p><strong>RESPONSE</strong></p>
+<pre><code>[
   {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Fan&quot;,
-      &quot;TypeIcon&quot;: &quot;FanIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Motor&quot;,
-      &quot;TypeIcon&quot;: &quot;MotorIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Converter&quot;,
-      &quot;TypeIcon&quot;: &quot;ConverterIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Chiller01&quot;,
-      &quot;TypeIcon&quot;: &quot;Chiller01Icon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;ChillerMotor&quot;,
-      &quot;TypeIcon&quot;: &quot;ChillerMotorIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;E-meter&quot;,
-      &quot;TypeIcon&quot;: &quot;E-meterIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Container&quot;,
-      &quot;TypeIcon&quot;: &quot;ContainerIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;VoltageMachine&quot;,
-      &quot;TypeIcon&quot;: &quot;VoltageMachineIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;CoolingTower&quot;,
-      &quot;TypeIcon&quot;: &quot;CoolingTowerIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;ChillerWater&quot;,
-      &quot;TypeIcon&quot;: &quot;ChillerWaterIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;PowerGenerator&quot;,
-      &quot;TypeIcon&quot;: &quot;PowerGeneratorIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Filter&quot;,
-      &quot;TypeIcon&quot;: &quot;FilterIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;WaterVolume&quot;,
-      &quot;TypeIcon&quot;: &quot;WaterVolumeIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
+    &quot;id&quot;: &quot;1&quot;,
+    &quot;employee_name&quot;: &quot;employee_name&quot;
+    &quot;employee_age&quot;: &quot;employee_age&quot;
   }
-]</code></pre>
-</div>
-
-<h2 id="/buttombar/sensor">/buttombar/sensor</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/sensor</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/sensor</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Controller&quot;,
-      &quot;TypeIcon&quot;: &quot;ControllerIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Co&quot;,
-      &quot;TypeIcon&quot;: &quot;CoIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;GasMeter&quot;,
-      &quot;TypeIcon&quot;: &quot;GasMeterIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;PIR&quot;,
-      &quot;TypeIcon&quot;: &quot;PIRIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Smoke&quot;,
-      &quot;TypeIcon&quot;: &quot;SmokeIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Sensor01&quot;,
-      &quot;TypeIcon&quot;: &quot;Sensor01&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;WaterMeter&quot;,
-      &quot;TypeIcon&quot;: &quot;WaterMeter&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/buttombar/system">/buttombar/system</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/system</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/module/bottombar/system</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Lighting&quot;,
-      &quot;TypeIcon&quot;: &quot;LightingIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Power&quot;,
-      &quot;TypeIcon&quot;: &quot;PowerIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;RenewableEnergy&quot;,
-      &quot;TypeIcon&quot;: &quot;RenewableEnergyIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Elevator&quot;,
-      &quot;TypeIcon&quot;: &quot;ElevatorIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;AirHandlingUnit&quot;,
-      &quot;TypeIcon&quot;: &quot;AirHandlingUnitIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Sanitary&quot;,
-      &quot;TypeIcon&quot;: &quot;SanitaryIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;ParkingManagement &quot;,
-      &quot;TypeIcon&quot;: &quot;ParkingManagementIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Security&quot;,
-      &quot;TypeIcon&quot;: &quot;SecurityIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  },
-  {
-    &quot;BottomBarIcon&quot;: {
-      &quot;TypeName&quot;: &quot;Personal&quot;,
-      &quot;TypeIcon&quot;: &quot;PersonalIcon&quot;,
-      &quot;Desciption&quot;: &quot;&quot;,
-      &quot;LastUpdateTime&quot;: &quot;&quot;
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/colddata">/colddata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/colddata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/colddata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;id&quot;: 536,
-      &quot;ParentId&quot;: &quot;&quot;,
-      &quot;ObjectId&quot;: &quot;carrier001&quot;,
-      &quot;ChartURL&quot;: &quot;&quot;,
-      &quot;Discriptor&quot;: &quot;AGV001&quot;,
-      &quot;Status&quot;: &quot;normal&quot;,
-      &quot;Thumbnail&quot;: &quot;\\\\Images\\\\Device\\\\Car1.png&quot;,
-      &quot;HotdataInfo&quot;: [
-        {
-          &quot;Key&quot;: &quot;ObjectUnitDescriptor&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;ocmsSensorName&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        }
-      ],
-      &quot;PointControllerInfo&quot;: [
-        {
-          &quot;Key&quot;: &quot;DisplayValue0&quot;,
-          &quot;Language&quot;: &quot;&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;DisplayValue1&quot;,
-          &quot;Language&quot;: &quot;&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;ControlHref&quot;,
-          &quot;Language&quot;: &quot;ControlHref&quot;,
-          &quot;Value&quot;: &quot;No available&quot;
-        }
-      ],
-      &quot;Information&quot;: [
-        {
-          &quot;Key&quot;: &quot;AGV Name&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;AGV001&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;Status&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;Moving&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;Connection&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;On&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;Obstacle&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;Off&quot;
-        }
-      ],
-      &quot;EmployeeInfo&quot;: []
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;id&quot;: 537,
-      &quot;ParentId&quot;: &quot;&quot;,
-      &quot;ObjectId&quot;: &quot;carrier002&quot;,
-      &quot;ChartURL&quot;: &quot;&quot;,
-      &quot;Discriptor&quot;: &quot;AGV002&quot;,
-      &quot;Status&quot;: &quot;normal&quot;,
-      &quot;Thumbnail&quot;: &quot;\\\\Images\\\\Device\\\\Car2.png&quot;,
-      &quot;HotdataInfo&quot;: [
-        {
-          &quot;Key&quot;: &quot;ObjectUnitDescriptor&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;ocmsSensorName&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        }
-      ],
-      &quot;PointControllerInfo&quot;: [
-        {
-          &quot;Key&quot;: &quot;DisplayValue0&quot;,
-          &quot;Language&quot;: &quot;&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;DisplayValue1&quot;,
-          &quot;Language&quot;: &quot;&quot;,
-          &quot;Value&quot;: &quot;&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;ControlHref&quot;,
-          &quot;Language&quot;: &quot;ControlHref&quot;,
-          &quot;Value&quot;: &quot;No available&quot;
-        }
-      ],
-      &quot;Information&quot;: [
-        {
-          &quot;Key&quot;: &quot;AGV Name&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;AGV002&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;Status&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;Moving&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;Connection&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;On&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;Obstacle&quot;,
-          &quot;Language&quot;: &quot;EN&quot;,
-          &quot;Value&quot;: &quot;Off&quot;
-        }
-      ],
-      &quot;EmployeeInfo&quot;: []
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/historicaldata">/historicaldata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="post">POST</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/historicaldata?from=&amp;to=&amp;limit=&amp;duration=</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/historicaldata?from=&amp;to=&amp;limit=&amp;duration=</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><h3 id="Request params">Request params</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>from</td>
-<td align="center"></td>
-<td>String</td>
-<td>10numbers ex: 1579069352</td>
-</tr>
-<tr>
-<td>to</td>
-<td align="center"></td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td>limit</td>
-<td align="center"></td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td>duration</td>
-<td align="center"></td>
-<td>String</td>
-<td></td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-        &quot;ObjectId&quot;: &quot;b7e0cb71-31a7-4888-9551-e9ae99f1871c&quot;,
-        &quot;Attributes&quot;: [
-            {
-                &quot;Key&quot;: &quot;Present_Value&quot;,
-                &quot;Value&quot;: &quot;1&quot;,
-                &quot;Timestamp&quot;: &quot;1581306844&quot;
-            }
-        ]
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-        &quot;ObjectId&quot;: &quot;02273ca2-0fd4-4fa3-bc69-205147daa8ac&quot;,
-        &quot;Attributes&quot;: [
-            {
-                &quot;Key&quot;: &quot;Present_Value&quot;,
-                &quot;Value&quot;: &quot;4&quot;,
-                &quot;Timestamp&quot;: &quot;1581306845&quot;
-            }
-        ]
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/lbshotdata">/lbshotdata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/lbshotdata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/lbshotdata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;employeeName&quot;,
-          &quot;Language&quot;: &quot;employeeName&quot;,
-          &quot;Value&quot;: &quot;YU YU WI&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;floor&quot;,
-          &quot;Language&quot;: &quot;floor&quot;,
-          &quot;Value&quot;: &quot;b1001&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;z&quot;,
-          &quot;Language&quot;: &quot;z&quot;,
-          &quot;Value&quot;: &quot;0&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;exportTime&quot;,
-          &quot;Language&quot;: &quot;exportTime&quot;,
-          &quot;Value&quot;: &quot;2019-12-24 10:43:30&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;type&quot;,
-          &quot;Language&quot;: &quot;type&quot;,
-          &quot;Value&quot;: &quot;pos&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;x&quot;,
-          &quot;Language&quot;: &quot;x&quot;,
-          &quot;Value&quot;: &quot;82762&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;y&quot;,
-          &quot;Language&quot;: &quot;y&quot;,
-          &quot;Value&quot;: &quot;1091&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;tag_mapx&quot;,
-          &quot;Language&quot;: &quot;tag_mapx&quot;,
-          &quot;Value&quot;: &quot;1014&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;tag_mapy&quot;,
-          &quot;Language&quot;: &quot;tag_mapy&quot;,
-          &quot;Value&quot;: &quot;251&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;status_staff_pos.mah.Factory2.1&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;employeeName&quot;,
-          &quot;Language&quot;: &quot;employeeName&quot;,
-          &quot;Value&quot;: &quot;ayekoko&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;floor&quot;,
-          &quot;Language&quot;: &quot;floor&quot;,
-          &quot;Value&quot;: &quot;b1001&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;z&quot;,
-          &quot;Language&quot;: &quot;z&quot;,
-          &quot;Value&quot;: &quot;0&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;exportTime&quot;,
-          &quot;Language&quot;: &quot;exportTime&quot;,
-          &quot;Value&quot;: &quot;2020-01-20 19:57:22&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;type&quot;,
-          &quot;Language&quot;: &quot;type&quot;,
-          &quot;Value&quot;: &quot;pos&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;x&quot;,
-          &quot;Language&quot;: &quot;x&quot;,
-          &quot;Value&quot;: &quot;60012&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;y&quot;,
-          &quot;Language&quot;: &quot;y&quot;,
-          &quot;Value&quot;: &quot;5859&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;tag_mapx&quot;,
-          &quot;Language&quot;: &quot;tag_mapx&quot;,
-          &quot;Value&quot;: &quot;743&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;tag_mapy&quot;,
-          &quot;Language&quot;: &quot;tag_mapy&quot;,
-          &quot;Value&quot;: &quot;185&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;status_staff_pos.mah.Factory2.2&quot;
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/staffcolddata">/staffcolddata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/staffcolddata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/staffcolddata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;staff001&quot;,
-      &quot;EmployeeInfo&quot;: [
-        {
-          &quot;staffId&quot;: &quot;987654321&quot;,
-          &quot;employeeName&quot;: &quot;TOM&quot;,
-          &quot;Image&quot;: &quot;staff01&quot;
-        }
-      ]
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;staff002&quot;,
-      &quot;EmployeeInfo&quot;: [
-        {
-          &quot;staffId&quot;: &quot;2222&quot;,
-          &quot;employeeName&quot;: &quot;Eric&quot;,
-          &quot;Image&quot;: &quot;staff02&quot;
-        }
-      ]
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;staff003&quot;,
-      &quot;EmployeeInfo&quot;: [
-        {
-          &quot;staffId&quot;: &quot;3333&quot;,
-          &quot;employeeName&quot;: &quot;Andy&quot;,
-          &quot;Image&quot;: &quot;staff03&quot;
-        }
-      ]
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/staffhistorical">/staffhistorical</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="post">POST</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/staffhistorical?from=&amp;to=&amp;limit=&amp;duration=&amp;SN=&amp;rowCount=&amp;Page=&amp;PageSize=</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/staffhistorical?from=&amp;to=&amp;limit=&amp;duration=&amp;SN=&amp;rowCount=&amp;Page=&amp;PageSize=</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><h3 id="Request params">Request params</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>from</td>
-<td align="center"></td>
-<td>String</td>
-<td>10numbers ex: 1579069352</td>
-</tr>
-<tr>
-<td>to</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>limit</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>duration</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>SN</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>rowCount</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>Page</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>PageSize</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;staff_null&quot;,
-      &quot;Attributes&quot;: [
-        {
-          &quot;Value&quot;: &quot;2020-02-10T00:43:48.000+0000&quot;,
-          &quot;Key&quot;: &quot;exportTime&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;&quot;,
-          &quot;Key&quot;: &quot;employeeName&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;000******&quot;,
-          &quot;Key&quot;: &quot;employeeId&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;3929193460238&quot;,
-          &quot;Key&quot;: &quot;SN&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;0&quot;,
-          &quot;Key&quot;: &quot;doorAction&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;20200210074348.jpg&quot;,
-          &quot;Key&quot;: &quot;Image&quot;
-        }
-      ]
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;staff_null&quot;,
-      &quot;Attributes&quot;: [
-        {
-          &quot;Value&quot;: &quot;2020-02-10T00:36:49.000+0000&quot;,
-          &quot;Key&quot;: &quot;exportTime&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;&quot;,
-          &quot;Key&quot;: &quot;employeeName&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;000******&quot;,
-          &quot;Key&quot;: &quot;employeeId&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;3929193460238&quot;,
-          &quot;Key&quot;: &quot;SN&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;0&quot;,
-          &quot;Key&quot;: &quot;doorAction&quot;
-        },
-        {
-          &quot;Value&quot;: &quot;20200210073649.jpg&quot;,
-          &quot;Key&quot;: &quot;Image&quot;
-        }
-      ]
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/doorsecuritydata">/doorsecuritydata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/doorsecuritydata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/doorsecuritydata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: &quot;194&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;DoorSecruity_Area_01&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: &quot;0&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;DoorSecruity_Area_02&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: &quot;194&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;DoorSecruity_Area_03&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Language&quot;: &quot;Value&quot;,
-          &quot;Value&quot;: &quot;1000&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;Area_total_number&quot;
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/agvcolddata">/agvcolddata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/agvcolddata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/agvcolddata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;status_agv.mah.Factory2.10.5.85.254.A002&quot;,
-      &quot;Thumbnail&quot;: &quot;Car1&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;ObjectId&quot;: &quot;status_agv.mah.Factory2.10.5.85.254.D015&quot;,
-      &quot;Thumbnail&quot;: &quot;Car1&quot;
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/agvhotdata">/agvhotdata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="post">POST</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/agvhotdata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/agvhotdata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><h3 id="Request params">Request params</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>from</td>
-<td align="center"></td>
-<td>String</td>
-<td>10numbers ex: 1579069352</td>
-</tr>
-<tr>
-<td>to</td>
-<td align="center"></td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td>limit</td>
-<td align="center"></td>
-<td>String</td>
-<td></td>
-</tr>
-<tr>
-<td>duration</td>
-<td align="center"></td>
-<td>String</td>
-<td></td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;agvName&quot;,
-          &quot;Language&quot;: &quot;agvName&quot;,
-          &quot;Value&quot;: &quot;D015&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;group&quot;,
-          &quot;Language&quot;: &quot;group&quot;,
-          &quot;Value&quot;: &quot;10.5.85.254&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;exportTime&quot;,
-          &quot;Language&quot;: &quot;exportTime&quot;,
-          &quot;Value&quot;: &quot;2020-01-16 03:35:01&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;location&quot;,
-          &quot;Language&quot;: &quot;location&quot;,
-          &quot;Value&quot;: &quot;RW076&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;obstaclePause&quot;,
-          &quot;Language&quot;: &quot;obstaclePause&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;idle&quot;,
-          &quot;Language&quot;: &quot;idle&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;plcError&quot;,
-          &quot;Language&quot;: &quot;plcError&quot;,
-          &quot;Value&quot;: &quot;True&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;canConnect&quot;,
-          &quot;Language&quot;: &quot;canConnect&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;moving&quot;,
-          &quot;Language&quot;: &quot;moving&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;status_agv.mah.Factory2.10.5.85.254.D015&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;agvName&quot;,
-          &quot;Language&quot;: &quot;agvName&quot;,
-          &quot;Value&quot;: &quot;D018&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;group&quot;,
-          &quot;Language&quot;: &quot;group&quot;,
-          &quot;Value&quot;: &quot;10.5.85.254&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;exportTime&quot;,
-          &quot;Language&quot;: &quot;exportTime&quot;,
-          &quot;Value&quot;: &quot;2020-01-16 03:35:01&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;location&quot;,
-          &quot;Language&quot;: &quot;location&quot;,
-          &quot;Value&quot;: &quot;RW010&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;obstaclePause&quot;,
-          &quot;Language&quot;: &quot;obstaclePause&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;idle&quot;,
-          &quot;Language&quot;: &quot;idle&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;plcError&quot;,
-          &quot;Language&quot;: &quot;plcError&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;canConnect&quot;,
-          &quot;Language&quot;: &quot;canConnect&quot;,
-          &quot;Value&quot;: &quot;True&quot;
-        },
-        {
-          &quot;Key&quot;: &quot;moving&quot;,
-          &quot;Language&quot;: &quot;moving&quot;,
-          &quot;Value&quot;: &quot;False&quot;
-        }
-      ],
-      &quot;ObjectId&quot;: &quot;status_agv.mah.Factory2.10.5.85.254.D018&quot;
-    }
-  }
-]</code></pre>
-</div>
-
-<h2 id="/reportcolddata">/reportcolddata</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="get">GET</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/reportcolddata</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/reportcolddata</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[]</code></pre>
-</div>
-
-<h2 id="/reporthistorical">/reporthistorical</h2>
-<p>.</p>
-<div class="index">
-
-<ul><li>HTTPS</li>
-<li class="post">POST</li>
-<li>application/json</li>
-</ul></div>
-
-
-<div class="source">
-
-<p><strong>PRODUCTION</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/reporthistorical?from=&amp;to=&amp;limit=&amp;duration=</code></pre><p><strong>STAGING</strong></p>
-<pre><code>https://product.nadi3docms.com/api/{companyId}/{productId}/{projectId}/reporthistorical?from=&amp;to=&amp;limit=&amp;duration=</code></pre></div>
-
-<h3 id="Request header">Request header</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>token</td>
-<td align="center">yes</td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><h3 id="Request params">Request params</h3>
-<div class="table_block"><table><thead><tr>
-<th>params</th>
-<th align="center">必須</th>
-<th>型</th>
-<th>説明</th>
-</tr>
-</thead><tbody><tr>
-<td>from</td>
-<td align="center"></td>
-<td>String</td>
-<td>10numbers ex: 1579069352</td>
-</tr>
-<tr>
-<td>to</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>limit</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-<tr>
-<td>duration</td>
-<td align="center"></td>
-<td>String</td>
-<td>--</td>
-</tr>
-</tbody></table></div><div class="source">
-
-<p><strong>Response</strong></p>
-<pre><code class="language-json">[
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 150,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 1,
-      &quot;ObjectId&quot;: &quot;A_DailyYield&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 150,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 2,
-      &quot;ObjectId&quot;: &quot;B_DailyYield&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 300,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 3,
-      &quot;ObjectId&quot;: &quot;C_DailyYield&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 150,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 4,
-      &quot;ObjectId&quot;: &quot;D_DailyYield&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 6000,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 5,
-      &quot;ObjectId&quot;: &quot;MonthYield&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 18000,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 6,
-      &quot;ObjectId&quot;: &quot;SeasonYield&quot;
-    }
-  },
-  {
-    &quot;ObjectData&quot;: {
-      &quot;Attributes&quot;: [
-        {
-          &quot;Key&quot;: &quot;Present_Value&quot;,
-          &quot;Value&quot;: 72000,
-          &quot;Language&quot;: &quot;Value&quot;
-        }
-      ],
-      &quot;id&quot;: 7,
-      &quot;ObjectId&quot;: &quot;YearYield&quot;
-    }
-  }
-]</code></pre>
-</div>
+]</code></pre></div>
